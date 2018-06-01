@@ -9,7 +9,9 @@ class Wine(models.Model):
     color = models.CharField(max_length=128)
     appellation = models.CharField(max_length=256)
     vintage = models.CharField(max_length=128)
+    notes = models.TextField(null=True)
     importer = models.ForeignKey('Importer',related_name='importers',null=True)
+    distributor = models.ForeignKey('Distributor',related_name='distributors',null=True)
 
     def __str__(self):
         return self.name
@@ -27,3 +29,10 @@ class Importer(models.Model):
 
     def get_absolute_url(self):
         return reverse("wineapp:detail",kwargs={'pk':self.pk})
+
+class Distributor(models.Model):
+    name = models.CharField(max_length=256)
+    web = models.URLField(max_length=200)
+    phone = models.CharField(max_length=200)
+    salesman = models.CharField(max_length=200)
+    email = models.EmailField(max_length=200)
