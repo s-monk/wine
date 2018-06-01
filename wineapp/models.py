@@ -36,3 +36,7 @@ class Distributor(models.Model):
     phone = models.CharField(max_length=200)
     salesman = models.CharField(max_length=200)
     email = models.EmailField(max_length=200)
+
+
+    def get_absolute_url(self):
+        return reverse("wineapp:detail",kwargs={'pk':self.pk})

@@ -25,4 +25,13 @@ class ImporterDetailView(DetailView):
     context_object_name = 'importer_detail'
     model = models.Importer
     template_name = "wineapp/importer_detail.html"
+
+class DistributorListView(ListView):
+    context_object_name = 'distributors'
+    model = models.Distributor
+
+class DistributorDetailView(DeleteView):
+    context_object_name = 'distributor_detail'
+    model = models.Distributor
+    template_name = "wineapp/distributor.html"
 # Create your views here.

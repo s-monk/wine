@@ -1,0 +1,12 @@
+{% extends "wineapp/wineapp_base.html" %}
+
+{% block body_block %}
+
+<h1>Welcome to the list of all of the importers</h1>
+<ol>
+  {% for distributor in distributors %}
+  <h2> <li> <a href="{{ distributor.id}}">{{ distributor.name}}</a> </li> </h2>
+  <h4>email: {{ distributor.email }}</h4>
+  {% endfor %}
+</ol>
+{% endblock %}
