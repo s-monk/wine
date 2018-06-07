@@ -5,8 +5,8 @@
 <h1>Welcome to the list of all of the importers</h1>
 <ol>
   {% for importer in importers %}
-  <h2> <li> <a href="{{ importer.id}}">{{ importer.name}}</a> </li> </h2>
-  <h4>email: {{ importer.email }}</h4>
+  <h2> <li> <a href="{% url 'wineapp:import' importer.id %}">{{ importer.name}}</a> </li> </h2>
+
   {% endfor %}
 </ol>
 {% endblock %}

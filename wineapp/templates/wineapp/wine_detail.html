@@ -1,15 +1,17 @@
 {% extends 'wineapp/wineapp_base.html' %}
+
 {% block body_block %}
 <div class="container">
   <h1>Welcome to Wine Detail page</h1>
-  <p>Name: {{ wine_detail.name }} </p>
-  <p>Producer: {{ wine_detail.producer }}</p>
-  <p>Type: {{ wine_detail.type }}</p>
-  <p>Color: {{ wine_detail.color }}</p>
-  <p>Appelation: {{ wine_detail.appellation }}</p>
-  <p>Notes: {{ wine_detail.notes }}</p>
-  <p>Importer: {{ importer_detail.name }}</p>
-  <p>Distributor: {{ distributor.name }}</p>
+  <p>Name: {{ detail.name }} </p>
+  <p>Producer: {{ detail.producer }}</p>
+  <p>Type: {{ detail.type }}</p>
+  <p>Color: {{ detail.color }}</p>
+  <p>Appelation: {{ detail.appellation }}</p>
+  <p>Notes: {{ detail.notes }}</p>
+  <p>Importer: {{ detail.importer.name }}</p>
+  <p>Distributor: {{ detail.distributor.name }}</p>
+
 
 </div>
 

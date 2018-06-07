@@ -10,14 +10,14 @@ class Wine(models.Model):
     appellation = models.CharField(max_length=256)
     vintage = models.CharField(max_length=128)
     notes = models.TextField(null=True)
-    importer = models.ForeignKey('Importer',related_name='importers',null=True)
-    distributor = models.ForeignKey('Distributor',related_name='distributors',null=True)
+    importer = models.ForeignKey('Importer',related_name='importers',blank=True,default='importer')
+    distributor = models.ForeignKey('Distributor',related_name='distributors',blank=True,default='distributor')
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("wineapp:detail",kwargs={'pk':self.pk})
+        return reverse("wineapp:wein",kwargs={'pk':self.pk})
 
 class Importer(models.Model):
     name = models.CharField(max_length=256)
@@ -28,7 +28,7 @@ class Importer(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("wineapp:detail",kwargs={'pk':self.pk})
+        return reverse("wineapp:import",kwargs={'pk':self.pk})
 
 class Distributor(models.Model):
     name = models.CharField(max_length=256)
@@ -37,6 +37,8 @@ class Distributor(models.Model):
     salesman = models.CharField(max_length=200)
     email = models.EmailField(max_length=200)
 
+    def __str__(self):
+        return self.name
 
     def get_absolute_url(self):
-        return reverse("wineapp:detail",kwargs={'pk':self.pk})
+        return reverse("wineapp:distrib",kwargs={'pk':self.pk})

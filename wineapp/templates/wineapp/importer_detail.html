@@ -1,5 +1,8 @@
-{% extends wineapp/wineaoo_base.html %}
+{% extends wineapp/wineapp_base.html %}
 {% block body_block %}
-  <p>Importer: {{ importer.name }}</p>
+<p>This is the detail of the importer you have chosen</p>
+  <p>Importer: {{ importer_detail.name }}</p>
+  <p>email: {{ importer_detail.email }}</p>
+  <p>address: {{ importer_detail.address }}</p>
 
 {% endblock %}
